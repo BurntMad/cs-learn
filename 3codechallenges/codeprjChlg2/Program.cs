@@ -26,3 +26,29 @@ do
     }
 }
 while (true);
+
+// ? viable solution:
+string? readResult;
+string roleName = "";
+bool validRole = false;
+
+do
+{
+    Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
+    readResult = Console.ReadLine();
+    if (readResult != null)
+    {
+        roleName = readResult.Trim().ToLower();
+    }
+    if (roleName == "administrator" || roleName == "manager" || roleName == "user")
+    {
+        validRole = true;
+        Console.WriteLine($"Your input value ({roleName}) has been accepted.");
+    }
+    else
+    {
+        Console.WriteLine($"The role name that you entered, \"{roleName}\" is not valid. Enter your role name (Administrator, Manager, or User)");
+    }
+} while (validRole == false);
+Console.WriteLine($"Your input value ({roleName}) has been accepted.");
+readResult = Console.ReadLine();
